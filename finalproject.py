@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+import plotly.graph_objects as go
+import plotly.express as px
 from scipy.stats import pearsonr, spearmanr, shapiro
 
 # =====================
@@ -120,11 +121,8 @@ if uploaded_file:
         # =====================
         # Visualization
         # =====================
-        fig, ax = plt.subplots()
-        ax.scatter(data[col_x], data[col_y])
-        ax.set_xlabel(col_x)
-        ax.set_ylabel(col_y)
-        st.pyplot(fig)
+         fig = px.scatter(df, x=col_x, y=col_y, title=f"{col_x} vs {col_y}")
+        st.plotly_chart(fig)
 
         # =====================
         # Description
@@ -137,3 +135,4 @@ Nilai koefisien korelasi sebesar **{corr:.3f}** dengan arah hubungan **{directio
 
 else:
     st.info(T["info"])
+
