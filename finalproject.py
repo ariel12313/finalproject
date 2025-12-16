@@ -121,7 +121,7 @@ if uploaded_file:
         # =====================
         # Visualization
         # =====================
-         fig = px.scatter(df, x=col_x, y=col_y, title=f"{col_x} vs {col_y}")
+        fig = px.scatter(df, x=col_x, y=col_y, title=f"{col_x} vs {col_y}")
         st.plotly_chart(fig)
 
         # =====================
@@ -135,4 +135,5 @@ Nilai koefisien korelasi sebesar **{corr:.3f}** dengan arah hubungan **{directio
 
 else:
     st.info(T["info"])
+
 
